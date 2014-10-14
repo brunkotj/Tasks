@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class Private {
+
+    class func makePrivate () {
+        
+    }
+    
+}

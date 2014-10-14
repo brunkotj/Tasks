@@ -16,8 +16,8 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var subtaskTextField: UITextField!
     @IBOutlet weak var dueDatePicker: UIDatePicker!
-    
-    
+    @IBOutlet weak var publicPrivateSwitch: UISwitch!
+    @IBOutlet weak var publicPrivateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +36,22 @@ class AddTaskViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    @IBAction func publicPrivateSwitchTapped(sender: AnyObject) {
+        var task = TaskModel(task: taskTextField.text, subTask: subtaskTextField.text, date: dueDatePicker.date, completed: false, isPrivate: false)
+        
+        if publicPrivateSwitch.on {
+            publicPrivateLabel.text = "This task is private"
+            return task.isPrivate = true
+        }
+        else {
+            publicPrivateLabel.text = "This task is public"
+            return task.isPrivate = false
+        }
+        
+    }
+    
     @IBAction func addTaskButtonTapped(sender: UIButton) {
-        var task = TaskModel(task: taskTextField.text, subTask: subtaskTextField.text, date: dueDatePicker.date, completed: false)
+        var task = TaskModel(task: taskTextField.text, subTask: subtaskTextField.text, date: dueDatePicker.date, completed: false, isPrivate: true)
             mainVC.baseArray[0].append(task)
             self.dismissViewControllerAnimated(true, completion: nil)
     }

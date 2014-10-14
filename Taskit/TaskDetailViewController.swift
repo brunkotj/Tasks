@@ -13,6 +13,8 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var subtaskTextField: UITextField!
     @IBOutlet weak var dueDatePicker: UIDatePicker!
+    @IBOutlet weak var publicPrivateSwitch: UISwitch!
+    @IBOutlet weak var publicPrivateLabel: UILabel!
     
     
     var detailTaskModel: TaskModel!
@@ -27,7 +29,7 @@ class TaskDetailViewController: UIViewController {
         self.taskTextField.text = detailTaskModel.task
         self.subtaskTextField.text = detailTaskModel.subTask
         self.dueDatePicker.date = detailTaskModel.date
-
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,6 +37,18 @@ class TaskDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func publicPrivateSwitch(sender: AnyObject) {
+        
+        if publicPrivateSwitch.on {
+            publicPrivateLabel.text = "This task is private"
+            detailTaskModel.isPrivate = true
+            
+        }
+        else {
+            publicPrivateLabel.text = "This task is public"
+            detailTaskModel.isPrivate = false
+        }
+    }
 
 
     @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
@@ -44,7 +58,7 @@ class TaskDetailViewController: UIViewController {
     
     @IBAction func doneBarButtonItemPressed(sender: UIBarButtonItem) {
         
-        var task = TaskModel(task: taskTextField.text, subTask: subtaskTextField.text, date: dueDatePicker.date, completed: false)
+        var task = TaskModel(task: taskTextField.text, subTask: subtaskTextField.text, date: dueDatePicker.date, completed: false, isPrivate: false)
         mainVC.baseArray[0][mainVC.tableView.indexPathForSelectedRow()!.row] = task
         
         self.navigationController?.popViewControllerAnimated(true)

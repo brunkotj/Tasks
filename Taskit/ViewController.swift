@@ -22,12 +22,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let date2 = Date.from(year: 2014, month: 03, day: 3)
         let date3 = Date.from(year: 2014, month: 12, day: 13)
         
-        let task1 = TaskModel(task: "Study French", subTask: "Verbs", date: date1, completed: false)
-        let task2 = TaskModel(task: "Eat Dinner", subTask: "Burgers", date: date2, completed: false )
+        let task1 = TaskModel(task: "Study French", subTask: "Verbs", date: date1, completed: false, isPrivate: false)
+        let task2 = TaskModel(task: "Eat Dinner", subTask: "Burgers", date: date2, completed: false, isPrivate: false )
         
-        var taskArray = [task1, task2, TaskModel(task: "Gym", subTask: "Leg day", date: date3, completed: false)]
+        var taskArray = [task1, task2, TaskModel(task: "Gym", subTask: "Leg day", date: date3, completed: false, isPrivate: false)]
         
-        var completedArray = [TaskModel(task: "Code", subTask: "Task Project", date: date2, completed: true)]
+        var completedArray = [TaskModel(task: "Code", subTask: "Task Project", date: date2, completed: true, isPrivate: false)]
         
         baseArray = [taskArray, completedArray]
 
@@ -132,12 +132,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let thisTask = baseArray[indexPath.section][indexPath.row]
         
         if indexPath.section == 0 {
-            var newTask = TaskModel(task: thisTask.task, subTask: thisTask.subTask, date: thisTask.date, completed: true)
+            var newTask = TaskModel(task: thisTask.task, subTask: thisTask.subTask, date: thisTask.date, completed: true, isPrivate: false)
             baseArray[indexPath.section].removeAtIndex(indexPath.row)
             baseArray[1].append(newTask)
         }
         else {
-            var newTask = TaskModel(task: thisTask.task, subTask: thisTask.subTask, date: thisTask.date, completed: false)
+            var newTask = TaskModel(task: thisTask.task, subTask: thisTask.subTask, date: thisTask.date, completed: false, isPrivate: false)
             baseArray[0].append(newTask)
         }
         
@@ -145,7 +145,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.reloadData()
     }
    
-
+    func sortByPrivate () {
+     
+        
+    }
     
     
 }

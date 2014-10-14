@@ -14,5 +14,6 @@ struct TaskModel {
     var subTask: String
     var date: NSDate
     var completed: Bool
+    var isPrivate: Bool
     
 }

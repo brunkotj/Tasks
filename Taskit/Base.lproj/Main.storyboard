@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dp6-a1-2rd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dp6-a1-2rd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
@@ -107,6 +107,18 @@
                                     <!--2014-10-07 19:34:45 +0000-->
                                 </date>
                             </datePicker>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EiP-pM-X2l">
+                                <rect key="frame" x="247" y="382" width="51" height="31"/>
+                                <connections>
+                                    <action selector="publicPrivateSwitch:" destination="yhn-Tw-vcx" eventType="valueChanged" id="BP9-bD-ZtI"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This Task is Private" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEF-24-XTU">
+                                <rect key="frame" x="16" y="392" width="147" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -124,6 +136,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dueDatePicker" destination="bX3-t3-Fwh" id="RRx-7b-Jtl"/>
+                        <outlet property="publicPrivateLabel" destination="AEF-24-XTU" id="csA-rK-SNr"/>
+                        <outlet property="publicPrivateSwitch" destination="EiP-pM-X2l" id="LzI-OM-gQG"/>
                         <outlet property="subtaskTextField" destination="stV-nE-nb9" id="zrp-Ny-PU3"/>
                         <outlet property="taskTextField" destination="8hW-5O-C7D" id="qvc-Mq-Nl7"/>
                     </connections>
@@ -190,17 +204,31 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This task is Private" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3A-Q1-GmD">
+                                <rect key="frame" x="16" y="442" width="144" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="L4j-la-Vel">
                                 <rect key="frame" x="0.0" y="259" width="320" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="434410885.64223099">
                                     <!--2014-10-07 21:41:25 +0000-->
                                 </date>
                             </datePicker>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6qs-60-1md">
+                                <rect key="frame" x="247" y="437" width="51" height="31"/>
+                                <connections>
+                                    <action selector="publicPrivateSwitchTapped:" destination="zIk-mv-esK" eventType="valueChanged" id="iP5-WS-yox"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="dueDatePicker" destination="L4j-la-Vel" id="t1B-Qb-yl1"/>
+                        <outlet property="publicPrivateLabel" destination="V3A-Q1-GmD" id="8fn-sp-4IS"/>
+                        <outlet property="publicPrivateSwitch" destination="6qs-60-1md" id="LHy-UP-knR"/>
                         <outlet property="subtaskTextField" destination="3UD-oj-FUk" id="r9G-W2-YrC"/>
                         <outlet property="taskTextField" destination="lV9-7N-qFr" id="zGe-EQ-vRB"/>
                     </connections>
